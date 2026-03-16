@@ -46,7 +46,7 @@
 
     3. Свободные порты: 5432, 6379, 8000
 
-1.  git clone <url-вашего-репозитория>
+1.  git clone <https://github.com/pamparam130/deribit-price-tracker>
     cd deribit-price-tracker
 
 2. Создать файл .env:
