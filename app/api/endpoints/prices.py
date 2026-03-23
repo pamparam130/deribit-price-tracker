@@ -14,9 +14,6 @@ async def get_prices(
     ticker: str = Depends(validate_ticker),
     repository: PriceRepository = Depends(get_price_repository)
 ):
-    """
-    Получение всех сохраненных данных по указанной валюте
-    """
     prices = repository.get_by_ticker(ticker)
     return prices
 
@@ -26,9 +23,6 @@ async def get_latest_price(
     ticker: str = Depends(validate_ticker),
     repository: PriceRepository = Depends(get_price_repository)
 ):
-    """
-    Получение последней цены валюты
-    """
     price = repository.get_latest_by_ticker(ticker)
     if not price:
         raise HTTPException(
@@ -45,9 +39,6 @@ async def get_prices_by_date(
     end_date: str = Query(..., description="Конечная дата (ISO format)"),
     repository: PriceRepository = Depends(get_price_repository)
 ):
-    """
-    Получение цены валюты с фильтром по дате
-    """
     start = parse_date(start_date)
     end = parse_date(end_date)
     
